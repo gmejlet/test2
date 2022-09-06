@@ -28,6 +28,7 @@ export default function App() {
   }
 
   const day = getDate(addDays(new Date(), 1));
+
   const hazards = data.result.near_earth_objects[day].reduce((acc, curr) => {
     if (curr.is_potentially_hazardous_asteroid) {
       return acc + 1;
@@ -42,7 +43,7 @@ export default function App() {
     <div>
       <p>
         {format(addDays(new Date(), 1), 'EEEE d-MMM')} there will be{' '}
-        <strong>{results.length}</strong> fula zamalo
+        <strong>{results.length}</strong> near misses
       </p>
       <hr></hr>
       {results
